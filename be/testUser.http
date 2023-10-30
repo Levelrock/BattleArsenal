@@ -1,0 +1,35 @@
+POST http://localhost:7077/users/create
+Content-Type: application/json
+
+{
+    "Avatar": "https://newmartina.it/cdn/shop/files/DDS02039_6196f34f-e1a3-4810-9d6f-87e33489535c.jpg?v=1687180444&width=2048",
+    "FirstName": "Gianni",
+    "LastName": "Fantoni",
+    "Email": "fantoni@example.com",
+    "Password": "giannifantoni"
+}
+
+####
+
+GET http://localhost:7077/users
+
+####
+
+DELETE http://localhost:7077/users/DELETE/653a55b0d28974f9a849245f
+
+####
+
+PATCH http://localhost:7077/users/edit/653a59a53eae50bd5c5fc678
+Content-Type: application/json
+
+{
+    "Avatar": "https://newmartina.it/cdn/shop/files/DDS02039_6196f34f-e1a3-4810-9d6f-87e33489535c.jpg?v=1687180444&width=2048",
+    "FirstName": "Giuseppe",
+    "LastName": "Fantoni",
+    "Email": "fantoni@example.com",
+    "Password": "giannifantoni"
+}
+
+####
+
+GET http://localhost:7077/users/byId/653a59a53eae50bd5c5fc678

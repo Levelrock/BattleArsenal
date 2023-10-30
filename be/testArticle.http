@@ -1,0 +1,40 @@
+POST http://localhost:7077/article/create
+Content-Type: application/json
+
+{
+    "Img": "https://upload.wikimedia.org/wikipedia/commons/3/39/AUG_A1_508mm_04.jpg",
+    "Title":"Steyr AUG",
+    "Price":"500",
+    "Brand":"Steyr",
+    "Description":"lorem ipsum dolor sit amet, consectetur",
+    "Author":"653a8e49a993cfdaed35627a"
+}
+
+####
+
+GET http://localhost:7077/article
+
+####
+
+DELETE http://localhost:7077/article/delete/653a8e59a993cfdaed35627c
+
+####
+
+PATCH http://localhost:7077/article/edit/653a9039eeaa10f679092093
+Content-Type: application/json
+
+{
+    "Img": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Kriss_Vector_SMG_Realistic.png",
+    "Title":"Kriss Vector",
+    "Price":"800",
+    "Description":"lorem ipsum dolor sit amet, consectetur",
+    "Author":"653a8e49a993cfdaed35627a"
+}
+
+####
+
+GET http://localhost:7077/article/byId/653a9039eeaa10f679092093
+
+#### 
+
+GET http://localhost:7077/articles/byTitle/ve

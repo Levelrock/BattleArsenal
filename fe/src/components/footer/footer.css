@@ -1,0 +1,24 @@
+.personal-class{
+    background-color: #212529 ;
+}
+
+.personal-class h5{
+    color: orange;
+    font-weight: 700;
+    margin-bottom: 3%;
+}
+
+.personal-class a{
+    font-size: smaller;
+    text-decoration: none ;
+    color: white;
+}
+
+.personal-class li{
+    list-style:none
+}
+
+.personal-class li :hover{
+    color: orange;
+}
+
