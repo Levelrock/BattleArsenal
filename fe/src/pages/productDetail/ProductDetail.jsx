@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Navigation from '../../components/navbar/Navigation'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Footer from '../../components/footer/Footer';
+import Button from 'react-bootstrap/Button';
+
 
 const ProductDetail = () => {
 
@@ -10,17 +16,18 @@ const ProductDetail = () => {
     const { articleId } = useParams()
     console.log(articleId);
 
-    const GetDetails = async (articleId)=>{
+    const GetDetails = async (articleId) => {
         try {
 
-        setIsLoading( true)
-        const response = await fetch(`http://localhost:7077/article/byId/${articleId}`)
+            setIsLoading(true)
+            const response = await fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/article/byId/${articleId}`)
+            
 
-        const data = await response.json()
-        console.log(data);
+            const data = await response.json()
+            console.log(data);
 
-        setProductDetail(data)
-        setIsLoading (false)
+            setProductDetail(data)
+            setIsLoading(false)
 
         } catch (e) {
             setError(e)
@@ -28,29 +35,37 @@ const ProductDetail = () => {
         }
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         GetDetails(articleId);
     }, [articleId])
 
     return (
         <>
-        <Navigation/>
-        <div>
-            {isLoading ? (
-                <p>Caricamento in corso...</p>
-            ) : error ? (
-                <p>Si è verificato un errore: {error.message}</p>
-            ) : (
-                <div>
-                    {productDetail?.article?.map((articles)=>(
-                        <div>
-                        <img src={articles.Img} alt={articles.Title} style={{ width: 500 }} />
-                        <p>{articles.Title}</p>
-                        </div>
-                    ))}
-                </div>
-            )}                
-        </div>
+            <Navigation />
+            <div>
+                {isLoading ? (
+                    <p>Caricamento in corso...</p>
+                ) : error ? (
+                    <p>Si è verificato un errore: {error.message}</p>
+                ) : (
+                    <div>
+                        {productDetail?.article?.map((articles) => (
+                            <Container fluid>
+                                <Row>
+                                    <Col sm={8}><img src={articles.Img} alt={articles.Title} style={{width: "100%"}} /></Col>
+                                    <Col sm={4}>
+                                        <h1>{articles.Title}</h1>
+                                        <p>{articles.Description}</p>
+                                        <h5>Replica Price from {articles.Price}€</h5>
+                                        <Button style={{ backgroundColor: "orange", border: "1px solid black", color: "black", textDecoration: "none" }}>Add to Cart</Button>
+                                    </Col>
+                                </Row>
+                            </Container>
+                        ))}
+                    </div>                    
+                )}
+            </div>
+            <Footer/>
         </>
     )
 }

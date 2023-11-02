@@ -1,8 +1,9 @@
 const express = require('express')
 const Articles = express.Router()
 const ArticleModel = require('../models/articleModel')
+const verifyToken = require('../middleware/verifyToken')
 
-Articles.post('/article/create', async (req, res) => {
+Articles.post('/article/create', verifyToken, async (req, res) => {
     const NewArticle = new ArticleModel({
         Img: req.body.Img,
         Title: req.body.Title,
@@ -28,7 +29,7 @@ Articles.post('/article/create', async (req, res) => {
     }
 })
 
-Articles.get('/article', async (req, res) => {
+Articles.get('/article',  async (req, res) => {
     try {
         const article = await ArticleModel.find()
             .populate('Author');

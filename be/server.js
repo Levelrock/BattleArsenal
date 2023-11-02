@@ -7,7 +7,8 @@ require ('dotenv').config()
 const PORT =7077
 
 //routes const
-const userRoutes= require('./routes/users')
+const userRoute= require('./routes/users')
+const loginRoute = require('./routes/login')
 const articleRoute= require('./routes/article')
 
 
@@ -18,8 +19,9 @@ app.use(express.json())
 
 //routes
 
-app.use('/', userRoutes)
+app.use('/', userRoute)
 app.use('/',articleRoute)
+app.use('/', loginRoute)
 
 
 mongoose.connect(process.env.MONGO_URI,{

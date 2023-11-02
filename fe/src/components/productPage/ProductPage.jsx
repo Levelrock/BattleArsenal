@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom'
 
 
+
 import './ProductPage.css'
 
 const ProductPage = () => {
@@ -14,7 +15,7 @@ const ProductPage = () => {
         setIsLoading(true)
 
         try {
-            const response = await fetch('http://localhost:7077/article')
+            const response = await fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/article`)
             const data = await response.json()
             console.log(data);
 
@@ -32,9 +33,6 @@ const ProductPage = () => {
         GetProduct()
     }, [])
 
-
-
-
     return (
         <div>
             {isLoading ? (
@@ -42,19 +40,19 @@ const ProductPage = () => {
             ) : error ? (
                 <p>Si è verificato un errore: {error.message}</p>
             ) : (
-                <table style={{ width: '100%' }}>
+                <table style={{ width: '100%' }} className='container-fluid table_box'>
                     <tr>
                         <th className='borderBottom3px borderRight3px'>Product</th>
                         <th className='borderBottom3px borderRight3px'>Name</th>
-                        <th className='borderBottom3px borderRight3px'> Brand</th>
-                        <th className='borderBottom3px borderRight3px'>Description</th>
-                        <th className='borderBottom3px'>Price</th>
+                        <th className='borderBottom3px borderRight3px'> Description</th>
+                        <th className='borderBottom3px borderRight3px'>Brand</th>
+                        <th className='borderBottom3px'>Replica Price</th>
                         <th className='borderBottom3px'></th>
 
                     </tr>
-                    <tbody>
+                    <tbody id='tablebody'>
                         {product?.article?.map(articles => (
-                            <tr key={articles._id}>
+                            <tr key={articles._id} style={{ borderBottom: "3px solid gray" }}>
                                 <td style={{ width: 250, borderRight: "1px solid gray" }}>
                                     <img src={articles.Img} alt={articles.Title} style={{ width: 200 }} />
                                 </td>
@@ -63,9 +61,12 @@ const ProductPage = () => {
                                 <td style={{ borderRight: "1px solid gray" }}>{articles.Brand}</td>
                                 <td>{articles.Price}€</td>
                                 <td style={{ borderRight: "1px solid gray", textAlign: "center" }}>
-                                    <Button style={{ backgroundColor: "orange", margin: "1px solid black", color: "black", }}>
-                                        <Link to={`/article/byId/${articles._id}`}>                                        
-                                        See More
+                                    <Button style={{ backgroundColor: "orange", border: "1px solid black", color: "black", marginRight:"5px"}}>
+                                    +
+                                    </Button>
+                                    <Button style={{ backgroundColor: "orange", border: "1px solid black", color: "black", textDecoration: "none" }}>
+                                        <Link to={`/article/byId/${articles._id}`}>
+                                            More
                                         </Link>
                                     </Button>
                                 </td>
@@ -79,3 +80,6 @@ const ProductPage = () => {
 }
 
 export default ProductPage
+
+
+

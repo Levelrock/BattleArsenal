@@ -1,4 +1,5 @@
 POST http://localhost:7077/article/create
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBdmF0YXIiOiJodHRwczovL25ld21hcnRpbmEuaXQvY2RuL3Nob3AvZmlsZXMvRERTMDIwMzlfNjE5NmYzNGYtZTFhMy00ODEwLTlkNmYtODdlMzM0ODk1MzVjLmpwZz92PTE2ODcxODA0NDQmd2lkdGg9MjA0OCIsIkZpcnN0TmFtZSI6IkdpYW5uaSIsIkxhc3ROYW1lIjoiRmFudG9uaSIsIkVtYWlsIjoiZmFudG9uaUBleGFtcGxlLmNvbSIsIlJvbGUiOiJ1c2VyIiwiaWF0IjoxNjk4NzY5MDkxLCJleHAiOjE2OTg4NTU0OTF9.szPewvWXU0j8gPDLsRcISYHxRzEs547Dn-33hYbc1OY
 Content-Type: application/json
 
 {
@@ -13,6 +14,8 @@ Content-Type: application/json
 ####
 
 GET http://localhost:7077/article
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBdmF0YXIiOiJodHRwczovL25ld21hcnRpbmEuaXQvY2RuL3Nob3AvZmlsZXMvRERTMDIwMzlfNjE5NmYzNGYtZTFhMy00ODEwLTlkNmYtODdlMzM0ODk1MzVjLmpwZz92PTE2ODcxODA0NDQmd2lkdGg9MjA0OCIsIkZpcnN0TmFtZSI6IkdpYW5uaSIsIkxhc3ROYW1lIjoiRmFudG9uaSIsIkVtYWlsIjoiZmFudG9uaUBleGFtcGxlLmNvbSIsIlJvbGUiOiJ1c2VyIiwiaWF0IjoxNjk4NzY5MDkxLCJleHAiOjE2OTg4NTU0OTF9.szPewvWXU0j8gPDLsRcISYHxRzEs547Dn-33hYbc1OY
+
 
 ####
 
@@ -20,21 +23,21 @@ DELETE http://localhost:7077/article/delete/653a8e59a993cfdaed35627c
 
 ####
 
-PATCH http://localhost:7077/article/edit/653a9039eeaa10f679092093
+PATCH http://localhost:7077/article/edit/653d0cc949ab6daa5bdd812c
 Content-Type: application/json
 
 {
     "Img": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Kriss_Vector_SMG_Realistic.png",
     "Title":"Kriss Vector",
-    "Price":"800",
-    "Description":"lorem ipsum dolor sit amet, consectetur",
+    "Price":"1000",
+    "Description":"The KRISS Vector is a series of weapons based upon the parent submachine gun design developed by the American company KRISS USA, formerly Transformational Defense Industries (TDI). They use an unconventional delayed blowback system combined with in-line design to reduce perceived recoil and muzzle climb, invented by French engineer Renaud Kerbrat. The Vector uses an articulated mechanism referred to as the Kriss Super V, which allows the bolt and an inertia block to move downward into a recess behind the magazine well. The theory is that at the end of this travel, the energy is transmitted downward rather than rearward, thus reducing the felt recoil. When fired, the barrel axis is in line with the shoulder as in the M16 rifle, but also in line with the shooter's hand. This is intended to reduce muzzle climb when combined with the off-axis bolt travel, though it also greatly raises the sight line in comparison to the bore axis. The initial prototype model by TDI achieved a rate of fire of 1,500 rounds per minute, though this was brought down to around 1,200 rounds per minute on the production models. Civilian models are limited to semi-automatic only.",
     "Author":"653a8e49a993cfdaed35627a"
 }
 
 ####
 
-GET http://localhost:7077/article/byId/653a9039eeaa10f679092093
+GET http://localhost:7077/article/byId/653d0cc949ab6daa5bdd812c
 
 #### 
 
-GET http://localhost:7077/articles/byTitle/ve
+GET http://localhost:7077/articles/byTitle/a
