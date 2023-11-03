@@ -57,7 +57,6 @@ const ProductDetail = () => {
                                         <h1>{articles.Title}</h1>
                                         <p>{articles.Description}</p>
                                         <h5>Replica Price from {articles.Price}€</h5>
-                                        <Button style={{ backgroundColor: "orange", border: "1px solid black", color: "black", textDecoration: "none" }}>Add to Cart</Button>
                                     </Col>
                                 </Row>
                             </Container>

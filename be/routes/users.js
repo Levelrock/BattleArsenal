@@ -2,6 +2,40 @@ const express = require('express');
 const Users= express.Router()
 const userModel= require('../models/userModel')
 const bcrypt = require('bcrypt');
+const multer = require('multer')
+const cloudinary = require('cloudinary').v2
+const { CloudinaryStorage } = require('multer-storage-cloudinary')
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+})
+
+const cloudStorage = new CloudinaryStorage({
+    cloudinary: cloudinary,
+    params: {
+        folder: 'UsersImg',
+        format: async (req, file) => 'png',
+        public_id: (req, file) => file.name
+    }
+})
+
+const cloudUpload = multer({storage: cloudStorage})
+
+Users.post('/users/cloudUpload', cloudUpload.single('Avatar'), async (req, res) => {
+    try {
+        res.status(201).json({Avatar: req.file.path})
+    } catch (error) {
+        res.status(500).send({
+            statuscode: 500,
+            message: 'An error occurred',
+            error: error.message
+        })
+    }
+})
+
+
 
 Users.post('/users/create', async (req, res) => {
 

@@ -61,9 +61,6 @@ const ProductPage = () => {
                                 <td style={{ borderRight: "1px solid gray" }}>{articles.Brand}</td>
                                 <td>{articles.Price}€</td>
                                 <td style={{ borderRight: "1px solid gray", textAlign: "center" }}>
-                                    <Button style={{ backgroundColor: "orange", border: "1px solid black", color: "black", marginRight:"5px"}}>
-                                    +
-                                    </Button>
                                     <Button style={{ backgroundColor: "orange", border: "1px solid black", color: "black", textDecoration: "none" }}>
                                         <Link to={`/article/byId/${articles._id}`}>
                                             More

@@ -2,10 +2,32 @@ const express = require('express')
 const Articles = express.Router()
 const ArticleModel = require('../models/articleModel')
 const verifyToken = require('../middleware/verifyToken')
+const multer = require('multer')
+const cloudinary = require('cloudinary').v2
+const { CloudinaryStorage } = require('multer-storage-cloudinary')
 
-Articles.post('/article/create', verifyToken, async (req, res) => {
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+})
+
+const cloudStorage = new CloudinaryStorage({
+    cloudinary: cloudinary,
+    params: {
+        folder: 'ArticleImg',
+        format: async (req, file) => 'png',
+        public_id: (req, file) => file.name
+    }
+})
+
+const cloudUpload = multer({ storage: cloudStorage })
+
+
+
+Articles.post('/article/create', verifyToken, cloudUpload.single('img'), async (req, res) => {
     const NewArticle = new ArticleModel({
-        Img: req.body.Img,
+        Img: req.file.path,
         Title: req.body.Title,
         Price: req.body.Price,
         Brand: req.body.Brand,

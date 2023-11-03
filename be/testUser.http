@@ -3,7 +3,7 @@ Content-Type: application/json
 
 {
     "Avatar": "https://newmartina.it/cdn/shop/files/DDS02039_6196f34f-e1a3-4810-9d6f-87e33489535c.jpg?v=1687180444&width=2048",
-    "FirstName": "Gianni",
+    "FirstName": "giuseppe",
     "LastName": "Fantoni",
     "Email": "fantoni@example.com",
     "Password": "giannifantoni",
@@ -45,3 +45,19 @@ Content-Type: application/json
     "Email": "fantoni@example.com",
     "Password" :"giannifantoni"
 }
+
+####
+
+POST http://localhost:7077/signIn
+Content-Type: application/json
+
+{
+    "Avatar": "https://newmartina.it/cdn/shop/files/DDS02039_6196f34f-e1a3-4810-9d6f-87e33489535c.jpg?v=1687180444&width=2048",
+    "FirstName": "anna",
+    "LastName": "Fantoni",
+    "Email": "fantoni4@example.com",
+    "Password": "giannifantoni",
+    "Role":"user"
+}
+
+####

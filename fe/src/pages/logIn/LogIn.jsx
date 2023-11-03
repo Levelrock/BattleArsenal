@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import './Login.css'
 import { useNavigate } from 'react-router-dom'
@@ -9,7 +10,7 @@ const LogIn = () => {
   const [logInData, setLoginData] = useState({})
   const [login, setLogin] = useState(null)
   const [error, setError] = useState(null)
-  
+
   const navigate = useNavigate()
 
   const handleInputChange = (e) => {
@@ -21,7 +22,7 @@ const LogIn = () => {
     })
   }
 
-  const onSubmit = async (e) => {
+  const LogInOnClick = async (e) => {
     e.preventDefault();
 
     try {
@@ -41,10 +42,13 @@ const LogIn = () => {
         console.log(data.token);
 
         navigate('/home')
-      }else{
+      } else {
         setError('Login failed. Check your credentials.')
+                    setTimeout(()=>{
+                        setError(null)
+                    }, 5000)
       }
-      
+
     } catch (error) {
       console.log(error);
       setError('An error occurred while trying to log in.')
@@ -52,19 +56,18 @@ const LogIn = () => {
   }
 
   return (
-    
-    <div>
-      <form
-        onSubmit={onSubmit}>
-        <h1>LogIn</h1>
-        <label for="Email">Email:</label>
+
+    <div id='body' style={{height:'100vh'}}>
+      <form id='form'>
+        <h1 style={{ color: "orange" }}>LogIn</h1>
+        <label htmlFor="Email" style={{ color: "orange" }}>Email:</label>
         <input
           type='text'
           name='Email'
           required
           onChange={handleInputChange}>
         </input>
-        <label for="Password">Password:</label>
+        <label htmlFor="Password" style={{ color: "orange" }}>Password:</label>
         <input
           type='password'
           name='Password'
@@ -72,10 +75,26 @@ const LogIn = () => {
           onChange={handleInputChange}>
         </input>
         <button
-          type='submit'
-          style={{ backgroundColor: "orange" }}>
+          type='button'
+          style={{ backgroundColor: "orange", marginTop:'15px'}}
+          onClick={LogInOnClick}>
           Login
         </button>
+        <div style={{marginTop: '15px'}}>
+        <p style={{ color: "orange" }}>Not a User?
+          <button
+            type='button'
+            style={{ backgroundColor: "orange", marginLeft:'15px'  }}
+          >
+            <Link to={'/users/create'} style={{ color: "black"}}>
+              Sign In
+            </Link>
+
+          </button></p>
+
+        </div>
+        
+
       </form>
       {error && <p>{error}</p>}
     </div>

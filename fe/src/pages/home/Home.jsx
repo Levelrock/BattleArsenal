@@ -5,7 +5,11 @@ import Footer from '../../components/footer/Footer'
 import { useSession } from '../../hooks/AuthSession'
 
 
+
 const Home = () => {
+    
+    const session = useSession()
+    console.log(session);
 
     return (
         <>

@@ -10,6 +10,7 @@ const PORT =7077
 const userRoute= require('./routes/users')
 const loginRoute = require('./routes/login')
 const articleRoute= require('./routes/article')
+const signInRoute = require('./routes/signIn')
 
 
 const app = express()
@@ -22,6 +23,7 @@ app.use(express.json())
 app.use('/', userRoute)
 app.use('/',articleRoute)
 app.use('/', loginRoute)
+app.use('/', signInRoute)
 
 
 mongoose.connect(process.env.MONGO_URI,{

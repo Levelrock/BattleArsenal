@@ -5,10 +5,7 @@ import ErrorNotFound from './pages/error404/ErrorNotFound';
 import ProductDetail from './pages/productDetail/ProductDetail';
 import LogIn from './pages/logIn/LogIn';
 import ProtectedRoutes from './middleware/protectedRoutes';
-
-
-
-
+import SignIn from './pages/signIn/SignIn';
 
 
 
@@ -17,6 +14,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<LogIn />} />
+        <Route path='users/create' element={<SignIn/>}/>
         <Route element={<ProtectedRoutes/>}>
           <Route path='/home' element={<Home />} />
           <Route path='/article/byId/:articleId' element={<ProductDetail />} />
