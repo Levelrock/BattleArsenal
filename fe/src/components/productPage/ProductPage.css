@@ -5,6 +5,10 @@
 .borderRight3px {
     border-right: 3px solid black;
 }
+.borderBottom3px{
+    border-top: 3px solid black;
+
+}
 
 @media screen and (max-width: 600px) {
     table tr :nth-child(2) {

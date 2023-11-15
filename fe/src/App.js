@@ -6,6 +6,9 @@ import ProductDetail from './pages/productDetail/ProductDetail';
 import LogIn from './pages/logIn/LogIn';
 import ProtectedRoutes from './middleware/protectedRoutes';
 import SignIn from './pages/signIn/SignIn';
+import ContactUs from './pages/contactUs/ContactUs';
+import Profile from './pages/Profile/Profile';
+
 
 
 
@@ -19,6 +22,8 @@ const App = () => {
           <Route path='/home' element={<Home />} />
           <Route path='/article/byId/:articleId' element={<ProductDetail />} />
           <Route path='*' element={<ErrorNotFound />} />
+          <Route path='/contactUs' element={<ContactUs/>}/>
+          <Route path='/user/byId/:userId' element={<Profile />}/>
         </Route>
       </Routes>
     </BrowserRouter>

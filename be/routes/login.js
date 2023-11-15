@@ -26,6 +26,7 @@ login.post('/login', async (req, res) => {
     }
     
     const token = jwt.sign({
+        Id: user._id,
         Avatar: user.Avatar,
         FirstName: user.FirstName,
         LastName: user.LastName,

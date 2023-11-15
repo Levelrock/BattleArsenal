@@ -1,0 +1,15 @@
+.main{
+    margin-top: 50px;
+}
+
+.imgClass{
+    padding: 15px;
+    border: 5px black ;
+    border-style: double;
+    width: 100%;
+
+}
+
+.rowClass{
+    margin-bottom: 25px;
+}

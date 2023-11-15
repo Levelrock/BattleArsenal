@@ -23,11 +23,21 @@ const cloudStorage = new CloudinaryStorage({
 
 const cloudUpload = multer({ storage: cloudStorage })
 
+Articles.post('/article/cloudUpload', cloudUpload.single('Img'), async (req, res) => {
+    try {
+        res.status(201).json({Img : req.file.path})
+    } catch (error) {
+        res.status(500).send({
+            statuscode: 500,
+            message: 'An error occurred',
+            error: error.message
+        })
+    }
+})
 
-
-Articles.post('/article/create', verifyToken, cloudUpload.single('img'), async (req, res) => {
+Articles.post('/article/create', cloudUpload.single('Img'), async (req, res) => {
     const NewArticle = new ArticleModel({
-        Img: req.file.path,
+        Img: req.body.Img,
         Title: req.body.Title,
         Price: req.body.Price,
         Brand: req.body.Brand,
@@ -52,12 +62,21 @@ Articles.post('/article/create', verifyToken, cloudUpload.single('img'), async (
 })
 
 Articles.get('/article',  async (req, res) => {
+    
+    const { page =1, pageSize=5 } = req.query
+    
     try {
         const article = await ArticleModel.find()
-            .populate('Author');
+            .populate('Author')
+            .limit(pageSize)
+            .skip((page -1)* pageSize)
+        const TotalArticle = await ArticleModel.count()    
 
         res.status(200).send({
             statuscode: 200,
+            currentPage: Number(page),
+            totalPages: Math.ceil(TotalArticle / pageSize),
+            TotalArticle,
             article
         })
     } catch (error) {
@@ -148,8 +167,8 @@ Articles.get('/article/byId/:articleId', async (req, res) => {
     }
 })
 
-Articles.get('/articles/byTitle/:Title', async (req, res) => {
-    const { Title } = req.params;
+Articles.get('/articles/byTitle', async (req, res) => {
+    const { Title } = req.query;
 
     try {
         const articles = await ArticleModel.find({

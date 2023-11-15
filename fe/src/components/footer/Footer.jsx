@@ -7,8 +7,8 @@ import './footer.css'
 const Footer = () => {
     return (
         <Container fluid>
-            <Row className=" d-flex justify-content-center">
-                <Col className=" d-flex flex-column align-items-center personal-class">
+            <Row className=" d-flex justify-content-center" >
+                <Col className=" d-flex flex-column align-items-center personal-class" style={{paddingTop: '20px'}}>
                     <h5>Information</h5>
                     <ul>
                         <li>
@@ -22,7 +22,7 @@ const Footer = () => {
                         </li>
                     </ul>
                 </Col>
-                <Col className=" d-flex flex-column align-items-center personal-class">
+                <Col className=" d-flex flex-column align-items-center personal-class" style={{paddingTop: '20px'}}>
                     <h5>Help</h5>
                     <ul>
                         <li>
@@ -36,7 +36,7 @@ const Footer = () => {
 
 
                 </Col>
-                <Col className=" d-flex flex-column align-items-center personal-class">
+                <Col className=" d-flex flex-column align-items-center personal-class" style={{paddingTop: '20px'}}>
                     <h5>Contact Us</h5>
                     <ul>
                         <li>
@@ -52,7 +52,7 @@ const Footer = () => {
                             <a href='#'>-Instagram</a>
                         </li>
                         <li>
-                            <a href='#'>-LinkedIn</a>
+                            <span>-Address: 123 Main Street, City, Country</span>
                         </li>
                     </ul>
 

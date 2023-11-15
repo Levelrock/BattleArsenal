@@ -59,7 +59,7 @@ const LogIn = () => {
 
     <div id='body' style={{height:'100vh'}}>
       <form id='form'>
-        <h1 style={{ color: "orange" }}>LogIn</h1>
+        <h1 style={{ color: "orange" }}>Log In</h1>
         <label htmlFor="Email" style={{ color: "orange" }}>Email:</label>
         <input
           type='text'
@@ -78,7 +78,7 @@ const LogIn = () => {
           type='button'
           style={{ backgroundColor: "orange", marginTop:'15px'}}
           onClick={LogInOnClick}>
-          Login
+          Log In
         </button>
         <div style={{marginTop: '15px'}}>
         <p style={{ color: "orange" }}>Not a User?

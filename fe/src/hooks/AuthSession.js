@@ -10,15 +10,17 @@ export const useSession= () => {
     const navigate = useNavigate()
 
     const checkTokenExpirationTime = () => {
-        const convertUnixDateToMillisecond = decodeSession.exp * 1000
-        const expirationDate = new Date(convertUnixDateToMillisecond)
-        const currentData = new Date()
-
-        if (expirationDate < currentData) {
-            localStorage.clear()
+        if (decodeSession) {
+            const convertUnixDateToMillisecond = decodeSession.exp * 1000
+            const expirationDate = new Date(convertUnixDateToMillisecond)
+            const currentData = new Date()
+    
+            if (expirationDate < currentData) {
+                localStorage.clear()
+            }
+    
+            console.log(expirationDate)            
         }
-
-        console.log(expirationDate)
     }
 
     useEffect(() => {

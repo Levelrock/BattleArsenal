@@ -1,0 +1,21 @@
+#Contact{
+    background-color: rgb(75, 75, 75);
+    color: orange;
+    height: 73.5vh;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+#Contact div{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-items: center;
+    border-bottom: 1px solid orange;
+    margin-bottom: 15px;
+}
+
+.ContactForm{
+    display: flex;
+    flex-direction: column;
+}

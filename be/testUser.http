@@ -2,12 +2,12 @@ POST http://localhost:7077/users/create
 Content-Type: application/json
 
 {
-    "Avatar": "https://newmartina.it/cdn/shop/files/DDS02039_6196f34f-e1a3-4810-9d6f-87e33489535c.jpg?v=1687180444&width=2048",
-    "FirstName": "giuseppe",
-    "LastName": "Fantoni",
-    "Email": "fantoni@example.com",
-    "Password": "giannifantoni",
-    "Role": "user"
+    "Avatar": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Kriss_Vector_SMG_Realistic.png",
+    "FirstName": "Federico",
+    "LastName": "Lai",
+    "Email": "levelrock95@gmail.com",
+    "Password": "password",
+    "Role": "admin"
 }
 
 ####

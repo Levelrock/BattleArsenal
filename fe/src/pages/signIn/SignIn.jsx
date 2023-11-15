@@ -86,7 +86,7 @@ const SignIn = () => {
     return (
         <div id='body' style={{ height: '100vh' }}>
             <form id='form' encType='multipart/form-data' onSubmit={sendUser}>
-                <h1 style={{ color: "orange" }}>SignIn</h1>
+                <h1 style={{ color: "orange" }}>Sign In</h1>
                 <label htmlFor="First Name" style={{ color: "orange" }}>First Name</label>
                 <input
                     type='text'
@@ -103,7 +103,7 @@ const SignIn = () => {
                     required
                 >
                 </input>
-                <label htmlFor="Avatar" style={{ color: "orange" }}>Avatar</label>
+                <label htmlFor="Avatar" id='fileFieldInput'>Avatar</label>
                 <input
                     type='file'
                     name='Avatar'
