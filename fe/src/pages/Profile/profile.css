@@ -1,0 +1,20 @@
+.DataCol{
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    background-color: #212529;
+    color: orange;
+text-align: center;    
+}
+
+.AvatarCol{
+    max-height: 70%;
+    background-color: #212529;
+    border: 5px solid orange;
+    border-style: double;
+}
+
+.AvatarCol Img{
+    width: 50px;
+    padding: 12px;
+}

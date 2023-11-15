@@ -12,7 +12,7 @@ const ProductPage = ({ }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [search, setSearch] = useState('')
     const [filtered, setFiltered] = useState([])
-    const totalPages = 5
+    const totalPages = 4
     const session = useSession()
     console.log(session.Role);
 
@@ -66,7 +66,7 @@ const ProductPage = ({ }) => {
 
     return (
         <div>
-                    <div className='d-flex justify-content-end mx-4 my-3'>
+                    <div className='d-flex justify-content-end px-4 py-3' style={{backgroundColor:'#212529'}}>
                         <label htmlFor='search' style={{ textAlign: 'center', fontWeight: '700', color: 'orange' }}>Find your Weapon</label>
                         <input type="text" name='search' placeholder='search here' onChange={(e)=>setSearch(e.target.value)} value={search}/>
                     </div>
